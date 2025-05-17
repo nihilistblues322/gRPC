@@ -6,25 +6,25 @@
       <form novalidate @submit.prevent="onLogin()">
         <div class="form-group">
           <label for="username">Username:</label>
-          <input name="username" class="form-control" v-model="username" />
+          <input name="username" class="form-control" v-model="username"/>
           <span>{{ usernameError }}</span>
         </div>
         <div class="form-group">
           <label for="password">Password:</label>
           <input
-            name="password"
-            type="password"
-            class="form-control"
-            v-model="password"
+              name="password"
+              type="password"
+              class="form-control"
+              v-model="password"
           />
           <span>{{ passwordError }}</span>
         </div>
         <div class="form-group">
           <input
-            type="submit"
-            class="btn btn-success"
-            :disabled="!form.valid"
-            value="Submit"
+              type="submit"
+              class="btn btn-success"
+              :disabled="!form.valid"
+              value="Submit"
           />
         </div>
       </form>
@@ -33,8 +33,8 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, ref } from "vue";
-import { useForm, useField } from "vee-validate";
+import {defineComponent, ref} from "vue";
+import {useForm, useField} from "vee-validate";
 import * as yup from "yup";
 import store from "../store";
 import router from "../router";
@@ -48,14 +48,14 @@ export default defineComponent({
       password: yup.string().required(),
     });
 
-    const { meta: form } = useForm({
+    const {meta: form} = useForm({
       validationSchema: schema,
     });
 
-    const { value: username, errorMessage: usernameError } =
-      useField("username");
-    const { value: password, errorMessage: passwordError } =
-      useField("password");
+    const {value: username, errorMessage: usernameError} =
+        useField("username");
+    const {value: password, errorMessage: passwordError} =
+        useField("password");
     const error = ref("");
 
     async function onLogin() {

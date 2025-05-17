@@ -7,27 +7,27 @@
         <div class="table-responsive table-sm">
           <table class="table">
             <thead>
-              <tr>
-                <th>Name</th>
-                <th>Company</th>
-                <th>City</th>
-              </tr>
+            <tr>
+              <th>Name</th>
+              <th>Company</th>
+              <th>City</th>
+            </tr>
             </thead>
             <tbody v-for="c in customers" :key="c.id">
-              <tr>
-                <td>{{ c.name }}</td>
-                <td>{{ c.companyName }}</td>
-                <td>{{ c.address.cityTown }}</td>
-              </tr>
-              <tr
+            <tr>
+              <td>{{ c.name }}</td>
+              <td>{{ c.companyName }}</td>
+              <td>{{ c.address.cityTown }}</td>
+            </tr>
+            <tr
                 v-for="r in c.readings"
-              >
+            >
               <td>&nbsp;</td>
-                <td>
-                  <small>&nbsp;&nbsp;{{ date(r.readingDate, "hh:mm a") }}</small>
-                </td>
-                <td><em>{{ r.value }}</em></td>
-              </tr>
+              <td>
+                <small>&nbsp;&nbsp;{{ date(r.readingDate, "hh:mm a") }}</small>
+              </td>
+              <td><em>{{ r.value }}</em></td>
+            </tr>
             </tbody>
           </table>
         </div>
@@ -37,7 +37,7 @@
 </template>
 <script lang="ts">
 import store from "../store";
-import { computed, onMounted } from "vue";
+import {computed, onMounted} from "vue";
 import filters from "../filters";
 
 export default {
