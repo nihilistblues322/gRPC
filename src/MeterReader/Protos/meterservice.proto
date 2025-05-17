@@ -23,7 +23,7 @@ message ReadingMessage {
 }
 
 message StatusMessage{
-  ReadingStatus Success = 1;
+  ReadingStatus Status = 1;
   string Message = 2;
 }
 
