@@ -1,6 +1,8 @@
 using MeterReader.Services;
 
 var builder = WebApplication.CreateBuilder(args);
+AppContext.SetSwitch("System.Net.Http.SocketsHttpHandler.Http2UnencryptedSupport", true);
+
 
 RegisterServices(builder);
 
@@ -75,6 +77,7 @@ static void SetupMiddleware(WebApplication webApp)
 static void RegisterServices(WebApplicationBuilder bldr)
 {
     bldr.Services.AddScoped<JwtTokenValidationService>();
+    
     bldr.Services.AddAuthentication()
         .AddJwtBearer(cfg =>
         {
